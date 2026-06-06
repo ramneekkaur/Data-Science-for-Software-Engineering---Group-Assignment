@@ -1,0 +1,16 @@
+{
+  "work_dir": "/scratch/hpc-prf-dssecs/surabhi/group4",
+  "cluster_rsf": "/scratch/hpc-prf-dssecs/surabhi/group4/output/ARC_Qodo_alpha0_5_k10_clusters.rsf",
+  "source_root": "/scratch/hpc-prf-dssecs/surabhi/group4/src/lucene",
+  "output_dir": "/scratch/hpc-prf-dssecs/surabhi/group4/output/week4_results",
+  "model_name": "microsoft/phi-2",
+  "max_source_chars": 500,
+  "max_summary_chars": 1000,
+  "max_input_tokens": 256,
+  "limit_clusters": 0,
+  "force": false,
+  "no_4bit": false,
+  "clusters_processed": 0,
+  "unmatched_entities": 1,
+  "timestamp": "2026-06-06 11:16:59"
+}
