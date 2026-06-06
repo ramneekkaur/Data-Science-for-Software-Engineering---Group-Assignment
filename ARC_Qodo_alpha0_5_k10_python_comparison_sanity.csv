@@ -1,0 +1,7 @@
+architecture_a,architecture_b,entities_a,entities_b,common_entities,clusters_a_common,clusters_b_common,adjusted_rand_index,normalized_mutual_info,note
+ARC_QODO,WCA_UEM,93,343,53,1.0,25.0,0.0,0.0,Python sanity check only; use ARCADE a2a/cvg for official evaluation
+ARC_QODO,WCA_UEMNM,93,343,53,1.0,1.0,1.0,1.0,Python sanity check only; use ARCADE a2a/cvg for official evaluation
+ARC_QODO,LIMBO_IL,93,343,0,,,,,Too few common entities for meaningful comparison
+WCA_UEM,WCA_UEMNM,343,343,343,213.0,10.0,0.00943202597103843,0.27379731174702954,Python sanity check only; use ARCADE a2a/cvg for official evaluation
+WCA_UEM,LIMBO_IL,343,343,0,,,,,Too few common entities for meaningful comparison
+WCA_UEMNM,LIMBO_IL,343,343,0,,,,,Too few common entities for meaningful comparison

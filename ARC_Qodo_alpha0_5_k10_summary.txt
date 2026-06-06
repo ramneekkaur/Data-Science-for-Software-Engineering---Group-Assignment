@@ -1,0 +1,48 @@
+
+DS4SE26 Week 3 ARC Run Summary
+==============================
+
+Working directory:
+/pc2/users/r/rohit
+
+Input files:
+Focused dependency RSF: /pc2/users/r/rohit/input/lucene-codecs-focused.rsf
+WCA_UEM: /pc2/users/r/rohit/input/wca_uem.rsf
+WCA_UEMNM: /pc2/users/r/rohit/input/wca_uemnm.rsf
+LIMBO_IL: /pc2/users/r/rohit/input/limbo_il.rsf
+
+Model:
+Qodo/Qodo-Embed-1-7B
+
+Lucene source tag/branch:
+releases/lucene/9.10.0
+
+ARC settings:
+ALPHA = 0.5
+TARGET_NUM_CLUSTERS = 10
+BATCH_SIZE = 2
+MAX_TOKENS = 8192
+
+Counts:
+Java source files used = 93
+Focused RSF dependency edges = 1947
+Unique RSF entities = 343
+Source entities overlapping with focused RSF = 53
+
+Outputs:
+ARC RSF = /pc2/users/r/rohit/output/ARC_Qodo_alpha0_5_k10_clusters.rsf
+ARC CSV = /pc2/users/r/rohit/output/ARC_Qodo_alpha0_5_k10_clusters.csv
+Semantic matrix = /pc2/users/r/rohit/output/ARC_Qodo_alpha0_5_k10_semantic_similarity_matrix.npy
+Structural matrix = /pc2/users/r/rohit/output/ARC_Qodo_alpha0_5_k10_structural_similarity_matrix.npy
+Combined matrix = /pc2/users/r/rohit/output/ARC_Qodo_alpha0_5_k10_combined_similarity_matrix.npy
+Distance matrix = /pc2/users/r/rohit/output/ARC_Qodo_alpha0_5_k10_distance_matrix.npy
+Comparison sanity CSV = /pc2/users/r/rohit/output/ARC_Qodo_alpha0_5_k10_python_comparison_sanity.csv
+Cluster size plot = /pc2/users/r/rohit/output/ARC_Qodo_alpha0_5_k10_cluster_sizes.png
+
+Important:
+The Python comparison table is only a sanity check.
+For official Week 3 evaluation, also run ARCADE a2a and cvg using:
+- ARC output
+- wca_uem.rsf
+- wca_uemnm.rsf
+- limbo_il.rsf
