@@ -1,0 +1,105 @@
+Week 3 ARCADE a2a/cvg Evaluation Summary
+============================================================
+
+
+================================================================================
+ARC_QODO_VS_LIMBO_IL_a2a.txt
+================================================================================
+
+0.28612303290415086
+
+
+
+================================================================================
+ARC_QODO_VS_LIMBO_IL_cvg.txt
+================================================================================
+
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/arc_qodo.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/limbo_il.rsf is 0.0
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/limbo_il.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/arc_qodo.rsf is 0.0
+
+
+
+================================================================================
+ARC_QODO_VS_WCA_UEMNM_a2a.txt
+================================================================================
+
+0.28612303290415086
+
+
+
+================================================================================
+ARC_QODO_VS_WCA_UEMNM_cvg.txt
+================================================================================
+
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/arc_qodo.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uemnm.rsf is 0.0
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uemnm.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/arc_qodo.rsf is 0.0
+
+
+
+================================================================================
+ARC_QODO_VS_WCA_UEM_a2a.txt
+================================================================================
+
+0.22172949002217113
+
+
+
+================================================================================
+ARC_QODO_VS_WCA_UEM_cvg.txt
+================================================================================
+
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/arc_qodo.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uem.rsf is 0.0
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uem.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/arc_qodo.rsf is 0.0
+
+
+
+================================================================================
+WCA_UEMNM_VS_LIMBO_IL_a2a.txt
+================================================================================
+
+1.4367816091954033
+
+
+
+================================================================================
+WCA_UEMNM_VS_LIMBO_IL_cvg.txt
+================================================================================
+
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uemnm.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/limbo_il.rsf is 0.0
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/limbo_il.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uemnm.rsf is 0.0
+
+
+
+================================================================================
+WCA_UEM_VS_LIMBO_IL_a2a.txt
+================================================================================
+
+1.253918495297801
+
+
+
+================================================================================
+WCA_UEM_VS_LIMBO_IL_cvg.txt
+================================================================================
+
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uem.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/limbo_il.rsf is 0.0
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/limbo_il.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uem.rsf is 0.0
+
+
+
+================================================================================
+WCA_UEM_VS_WCA_UEMNM_a2a.txt
+================================================================================
+
+66.77115987460816
+
+
+
+================================================================================
+WCA_UEM_VS_WCA_UEMNM_cvg.txt
+================================================================================
+
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uem.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uemnm.rsf is 0.03755868544600939
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uemnm.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uem.rsf is 0.8
+
+

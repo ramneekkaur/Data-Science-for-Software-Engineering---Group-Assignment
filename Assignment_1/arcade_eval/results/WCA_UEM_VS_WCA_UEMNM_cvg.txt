@@ -1,0 +1,2 @@
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uem.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uemnm.rsf is 0.03755868544600939
+Coverage from /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uemnm.rsf to /scratch/hpc-prf-dssecs/group4/arcade_eval/rsf/wca_uem.rsf is 0.8
