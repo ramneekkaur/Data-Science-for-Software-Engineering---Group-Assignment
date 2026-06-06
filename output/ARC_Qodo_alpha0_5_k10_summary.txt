@@ -1,0 +1,49 @@
+
+DS4SE26 Week 3 ARC Run Summary
+==============================
+
+Working directory:
+/scratch/hpc-prf-dssecs/group4
+
+Input files:
+Focused dependency RSF: /scratch/hpc-prf-dssecs/group4/input/lucene-codecs-focused.rsf
+WCA_UEM: /scratch/hpc-prf-dssecs/group4/input/wca_uem.rsf
+WCA_UEMNM: /scratch/hpc-prf-dssecs/group4/input/wca_uemnm.rsf
+LIMBO_IL: /scratch/hpc-prf-dssecs/group4/input/limbo_il.rsf
+
+Model:
+Qodo/Qodo-Embed-1-7B
+
+Lucene source tag/branch:
+releases/lucene/9.10.0
+
+ARC settings:
+ALPHA = 0.5
+TARGET_NUM_CLUSTERS = 10
+BATCH_SIZE = 1
+MAX_TOKENS = 1024
+
+Counts:
+Java source files used = 93
+Focused RSF dependency edges = 1947
+Unique RSF entities = 343
+Source entities overlapping with focused RSF = 53
+
+Outputs:
+ARC RSF = /scratch/hpc-prf-dssecs/group4/output/ARC_Qodo_alpha0_5_k10_clusters.rsf
+ARC CSV = /scratch/hpc-prf-dssecs/group4/output/ARC_Qodo_alpha0_5_k10_clusters.csv
+Embeddings = /scratch/hpc-prf-dssecs/group4/output/ARC_Qodo_alpha0_5_k10_embeddings.npy
+Semantic matrix = /scratch/hpc-prf-dssecs/group4/output/ARC_Qodo_alpha0_5_k10_semantic_similarity_matrix.npy
+Structural matrix = /scratch/hpc-prf-dssecs/group4/output/ARC_Qodo_alpha0_5_k10_structural_similarity_matrix.npy
+Combined matrix = /scratch/hpc-prf-dssecs/group4/output/ARC_Qodo_alpha0_5_k10_combined_similarity_matrix.npy
+Distance matrix = /scratch/hpc-prf-dssecs/group4/output/ARC_Qodo_alpha0_5_k10_distance_matrix.npy
+Comparison sanity CSV = /scratch/hpc-prf-dssecs/group4/output/ARC_Qodo_alpha0_5_k10_python_comparison_sanity.csv
+Cluster size plot = /scratch/hpc-prf-dssecs/group4/output/ARC_Qodo_alpha0_5_k10_cluster_sizes.png
+
+Important:
+The Python comparison table is only a sanity check.
+For official Week 3 evaluation, also run ARCADE a2a and cvg using:
+- ARC output
+- wca_uem.rsf
+- wca_uemnm.rsf
+- limbo_il.rsf

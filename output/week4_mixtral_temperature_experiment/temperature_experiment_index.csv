@@ -1,0 +1,2 @@
+temperature,output_dir,status,start_time,end_time
+0.1,output/week4_mixtral_temperature_experiment/temp_0p1,failed_exit_1,2026-05-30 18:33:47,2026-05-30 18:47:24
