@@ -1,0 +1,10 @@
+deactivate
+rmdir /s /q venv
+
+python -m venv venv
+.\venv\Scripts\Activate.bat
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet'); nltk.download('omw-1.4')"

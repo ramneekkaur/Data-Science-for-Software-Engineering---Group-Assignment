@@ -1,0 +1,142 @@
+[
+  {
+    "issue_id": "LUCENE-620",
+    "summary": "GData Server - TestCase Deadlock  StorageModifier",
+    "description": "Solfed the racecondition deadlock while closing the StorageController.\nThis occured the first time hossman tried to run the test cases. \n\nConcurrent Modification Exception while iteration over a collection in a sepereate thread -- ModifiedEntryFilter replaced list with array.\n\n@Hossman if you can get to it, could you try the testcases again.\n\n@all If you guys do have time you could run the testcases on different environment, that would help to resolve bugs in the test cases and the server.\n\nsimon",
+    "status": "Resolved",
+    "issue_type": "Bug",
+    "parent": null,
+    "num_comments": 4,
+    "comments": [
+      {
+        "author": "Chris M. Hostetter",
+        "created": "2006-07-01T02:20:16.000+0000",
+        "body": "patch applies cleanly, running many iterations of the tests on my hyperthreaded machine now."
+      },
+      {
+        "author": "Chris M. Hostetter",
+        "created": "2006-07-01T02:32:19.000+0000",
+        "body": "I don't think i was able to get the tests to run succesfully more then one time ... in all other cases eitehr 1 failure, 2 failures, or 1 failure and an exception.\n\nZIP file containing the results is attached."
+      },
+      {
+        "author": "Chris M. Hostetter",
+        "created": "2006-07-01T02:33:19.000+0000",
+        "body": "code commited in spite of test failures (it doesn't make the problem any worse ... no deadlocks so far)"
+      },
+      {
+        "author": "Tomoko Uchida",
+        "created": "2022-08-28T11:29:05.260+0000",
+        "body": "This issue was moved to GitHub issue: [#1695|https://github.com/apache/lucene/issues/1695]."
+      }
+    ]
+  },
+  {
+    "issue_id": "LUCENE-12",
+    "summary": "Delete is not multi-thread safe",
+    "description": "Here is a pseudo-code\n\nwriter.open()\nwriter.add(documentA);\nwriter.close()  // this creates segment1 with 1 document\n\nreader.open()            // this reader can be opened by another process\nwriter.open()            // this creates segment2 with one document\nreader.delete(documentA) // using unique term // here delete is done in-memory\nwriter.add(documentB) \nwriter.close()          // writer will merge two segments, delete segment2 \n                        // and will mark segment1 for deletion because \n                        // reader  holds files to segment1 open\n\nreader.close()          // reader writes out .del file, but that is too\n                        // late\n\nsearcher.open()\nsearcher.search(\"term_common_to_docA_and_docB\") // returns both docA and docB\n\n\nIt seems that either a) deletes should be write-through, or b) deletes should \nbe done by the writer, or c) writer should not optimize non-RAM segments unless \nasked to. As a client, I like option b) the best, though, this is not the \neasiest option to implement. My $0.02",
+    "status": "Closed",
+    "issue_type": "Bug",
+    "parent": null,
+    "num_comments": 3,
+    "comments": [
+      {
+        "author": "cutting@apache.org",
+        "created": "2002-02-09T06:55:59.000+0000",
+        "body": "This has been fixed.  Document deletion now requires the index write lock, and \nhence cannot be performed concurrently with document addition."
+      },
+      {
+        "author": "Tony Lai",
+        "created": "2002-09-13T20:15:28.000+0000",
+        "body": "Maybe I should have reopened this bug rather than reporting a new one.  Anyhow, \nplease check the new Bug 12588, which I believe is the same problem from a \ndifferent perspective."
+      },
+      {
+        "author": "Tomoko Uchida",
+        "created": "2022-08-28T11:10:06.584+0000",
+        "body": "This issue was moved to GitHub issue: [#1090|https://github.com/apache/lucene/issues/1090]."
+      }
+    ]
+  },
+  {
+    "issue_id": "LUCENE-17",
+    "summary": "IndexWriter",
+    "description": "While the input sources are abstracted, the indices are always files in the \nFileSystem.  It would be nice to abstract the IndexWriter to output to other \ndata stores.\n\nFor example, I would like to trying to use Lucene to index and search a set of \nshort-lived documents while involved in a P2P environment.  Ideally, this \nindex (which would be single merge for each peer) can reside in memory rather \nthan in the file system (for reasons of security as much as anything else -- \nI'd prefer not to require permission to write out to the user's filesystem).\n\nI think it'd be a nice addition to Lucene.  It would make the Lucene engine \nmore easily embedded into other apps.",
+    "status": "Closed",
+    "issue_type": "Improvement",
+    "parent": null,
+    "num_comments": 3,
+    "comments": [
+      {
+        "author": "Otis Gospodnetic",
+        "created": "2002-03-08T06:52:11.000+0000",
+        "body": "Couldn't you use RAMDirectory for that?\n\nI don't think we want to use Bugzilla for keeping \ntrack of enhancements or to-do lists...\n"
+      },
+      {
+        "author": "Otis Gospodnetic",
+        "created": "2002-04-04T00:23:40.000+0000",
+        "body": "This is not really a bug, so I'm closing it.\n"
+      },
+      {
+        "author": "Tomoko Uchida",
+        "created": "2022-08-28T11:10:15.831+0000",
+        "body": "This issue was moved to GitHub issue: [#1095|https://github.com/apache/lucene/issues/1095]."
+      }
+    ]
+  },
+  {
+    "issue_id": "LUCENE-45",
+    "summary": "ACL's on search content",
+    "description": "I would like Lucene to be able to be able to limit its search to specific\ncontent by arbitrary information, such as user and company information.  We need\nthis kind of capability for our e-commerce website, in that we have company and\nuser rules that would prohibit specific users from being able to see our entire\ncatalog.",
+    "status": "Closed",
+    "issue_type": "Improvement",
+    "parent": null,
+    "num_comments": 5,
+    "comments": [
+      {
+        "author": "Otis Gospodnetic",
+        "created": "2002-06-29T04:50:03.000+0000",
+        "body": "This sounds like an application-specific feature, and something that Lucene\nshould not have to worry about."
+      },
+      {
+        "author": "Andrig T. Miller",
+        "created": "2002-07-04T09:02:28.000+0000",
+        "body": "I opened this as an enhancement request, not as a bug, as anyone can clearly see\nfrom the severity being set to \"Enchancment\".  Based on the below text, which\ncomes directly from the Jakarta project site, this is supposed to be the\nmechanism to request feature enhancements.  I recieved one e-mail saying that\none of my bugs was closed, because you use a TODO list in CVS for enhancements.\n I know that Lucene hasn't been a Jakarta project for very long, but since it\nis, it should follow established Jakarta project methods for such a thing.  I\nfind it much easier to request a feature enhancement through the standard\nJakarta mechanism, because I can use to track my requests against the project. \nIf you want to add my request to the TODO list in CVS from here that is fine,\nbut I would like to track this through this request.\n\nPier Fumagalli has set up the Apache Bug Database. Please use this database\nreport bugs and suggest new features. To suggest a new feature, set the severity\nof the bug to \"enhancement\".\n\nThanks.\n\n"
+      },
+      {
+        "author": "Erik Hatcher",
+        "created": "2003-10-09T16:11:15.000+0000",
+        "body": "Lucene includes several options for doing what is requested here.  Writing a custom Filter or using \nQueryFilter are two possibilities.   While I agree that we should use Bugzilla for enhancement \nrequests, your request is specific to your application and Lucene provides the necessary hooks for \nyou to accomplish your needs."
+      },
+      {
+        "author": "Andrig T. Miller",
+        "created": "2003-10-10T06:08:11.000+0000",
+        "body": "Okay, we will look into a custom filter, or whether the QueryFilter will work\nfor us.\n\nThanks."
+      },
+      {
+        "author": "Tomoko Uchida",
+        "created": "2022-08-28T11:11:08.287+0000",
+        "body": "This issue was moved to GitHub issue: [#1123|https://github.com/apache/lucene/issues/1123]."
+      }
+    ]
+  },
+  {
+    "issue_id": "LUCENE-50",
+    "summary": "Directory implementation that uses ZIP",
+    "description": "Would is be possible to create an implementation of Directory that uses ZIP to \ncompress the index into a single file, i.e. ZIPDirectory? This would help in \ndistributing indices (with software) to be used on single workstations for read-\nonly purposes.",
+    "status": "Closed",
+    "issue_type": "Improvement",
+    "parent": null,
+    "num_comments": 2,
+    "comments": [
+      {
+        "author": "Grant Ingersoll",
+        "created": "2007-12-19T03:29:10.869+0000",
+        "body": "The CompoundFile format pretty closely simulates this (although it uses 3 files, not 1).  At any rate, it should be sufficient."
+      },
+      {
+        "author": "Tomoko Uchida",
+        "created": "2022-08-28T11:11:17.716+0000",
+        "body": "This issue was moved to GitHub issue: [#1128|https://github.com/apache/lucene/issues/1128]."
+      }
+    ]
+  }
+]
